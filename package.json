@@ -1,0 +1,19 @@
+{
+  "name": "react-to-math",
+  "version": "1.0.0",
+  "description": "An application that provides practice problems for common math topics - created using react among other things",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabralwilliams/react-to-math.git"
+  },
+  "author": "Cabral Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cabralwilliams/react-to-math/issues"
+  },
+  "homepage": "https://github.com/cabralwilliams/react-to-math#readme"
+}
