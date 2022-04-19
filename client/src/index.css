@@ -1,3 +1,9 @@
+:root {
+    --dang-hov: #d3473690;
+    --nav-active: #2468ac;
+    --light-text: #abcdef;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +16,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.danger-hover {
+    color: var(--light-text);
+}
+
+.navActive {
+    color: var(--nav-active);
+}
+
+.danger-hover:hover {
+    color: var(--dang-hov);
 }

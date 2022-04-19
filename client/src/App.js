@@ -1,25 +1,58 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { Provider } from 'react-redux';
+import store from './utils/store';
+import Header from './components/Header';
+import Login from './pages/Login';
+import AdminLogin from './pages/AdminLogin';
+import PasswordReset from './pages/PasswordReset';
+import Footer from './components/Footer';
+
+const httpLink = createHttpLink({
+    uri: 'http://localhost:3001/graphql'
+});
+
+const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem('app_id_token');
+    // console.log(token);
+    return {
+        headers: {
+            ...headers,
+            authorization: token ? `Bearer ${token}` : ""
+        }
+
+    }
+});
+
+const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache()
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ApolloProvider client={client}>
+            <div className="container-fluid">
+                <Provider store={store}>
+                    <Router>
+                        <Header />
+                        <main>
+                            <Routes>
+                                <Route path='/login' element={<Login />} />
+                                <Route path='/admin_login' element={<AdminLogin />} />
+                                <Route path='/password_reset' element={<PasswordReset />} />
+                            </Routes>
+                        </main>
+                        <Footer />
+                    </Router>
+                </Provider>
+            </div>
+        </ApolloProvider>
+    );
 }
 
 export default App;

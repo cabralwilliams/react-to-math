@@ -1,0 +1,6 @@
+
+export const GET_USER = "GET_USER";
+export const LOG_OUT_USER = "LOG_OUT_USER";
+export const SET_ASSIGNED_USERS = "SET_ASSIGNED_USERS";
+export const SET_ADMINISTRATORS = "SET_ADMINISTRATORS";
+export const SET_ACTIVE_ROUTE = "SET_ACTIVE_ROUTE";
