@@ -34,7 +34,7 @@ const defaultLinks = [
 ]
 
 const loginLink = { linkPath: "/login", linkName: "Login/Signup", classes: ["nav-link","text-light","danger-hover"] }
-
+const dashboardLink = { linkPath: "/dashboard", linkName: "Dashboard", classes: ["nav-link","text-light","danger-hover"] }
 function Header() {
     const state = useSelector(state => {
         return { user: state.user, activeRoute: state.activeRoute, userLoggedIn: state.userLoggedIn };
@@ -77,6 +77,11 @@ function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
+                        {
+                            state.userLoggedIn && (<li className="nav-item mr-4">
+                                <a href={dashboardLink.linkPath} className={dashboardLink.classes.join(" ")}>{dashboardLink.linkName}</a>
+                            </li>)
+                        }
                         {
                             mainLinks.map((link, i) => {
                                 return(
