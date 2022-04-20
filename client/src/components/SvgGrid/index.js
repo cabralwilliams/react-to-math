@@ -20,7 +20,7 @@ function SvgGrid({ bounds, lineW, lineFill }) {
     return (
         <g>
             {
-                gridLines.map((gridline, i) => gridline)
+                gridLines.map((gridline, i) => <g key={i}>{gridline}</g>)
             }
         </g>
     );

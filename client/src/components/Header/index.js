@@ -10,32 +10,33 @@ import { useDispatch, useSelector } from 'react-redux';
 <li class="nav-item mr-4">
 <a class="nav-link text-light danger-hover" href="#">Disabled</a>
 </li> */
-const defaultLinks = [
-    {
-        linkPath: "/",
-        linkName: "Home",
-        classes: ["nav-link","text-light","danger-hover"]
-    },
-    {
-        linkPath: "/algebra",
-        linkName: "Algebra",
-        classes: ["nav-link","text-light","danger-hover"]
-    },
-    {
-        linkPath: "/geometry",
-        linkName: "Geometry",
-        classes: ["nav-link","text-light","danger-hover"]
-    },
-    {
-        linkPath: "/statistics",
-        linkName: "Statistics",
-        classes: ["nav-link","text-light","danger-hover"]
-    }
-]
 
-const loginLink = { linkPath: "/login", linkName: "Login/Signup", classes: ["nav-link","text-light","danger-hover"] }
-const dashboardLink = { linkPath: "/dashboard", linkName: "Dashboard", classes: ["nav-link","text-light","danger-hover"] }
 function Header() {
+    const defaultLinks = [
+        {
+            linkPath: "/",
+            linkName: "Home",
+            classes: ["nav-link","text-light","danger-hover"]
+        },
+        {
+            linkPath: "/algebra",
+            linkName: "Algebra",
+            classes: ["nav-link","text-light","danger-hover"]
+        },
+        {
+            linkPath: "/geometry",
+            linkName: "Geometry",
+            classes: ["nav-link","text-light","danger-hover"]
+        },
+        {
+            linkPath: "/statistics",
+            linkName: "Statistics",
+            classes: ["nav-link","text-light","danger-hover"]
+        }
+    ]
+    
+    const loginLink = { linkPath: "/login", linkName: "Login/Signup", classes: ["nav-link","text-light","danger-hover"] }
+    const dashboardLink = { linkPath: "/dashboard", linkName: "Dashboard", classes: ["nav-link","text-light","danger-hover"] }
     const state = useSelector(state => {
         return { user: state.user, activeRoute: state.activeRoute, userLoggedIn: state.userLoggedIn };
     });
