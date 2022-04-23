@@ -81,3 +81,49 @@ describe('getPolyCos function', () => {
         expect(cos1[3]).toBe(6);
     });
 });
+
+describe('isAsymptotic function', () => {
+    //Returns false when at a numerator zero that isn't a denominator zero
+    const asymptotic0 = calc.isAsymptotic([1,2,3],[2,3,4],1,1000);
+    test('it handles numerator exclusive zeroes properly', () => {
+        expect(asymptotic0).toBe(false);
+    });
+    
+    //Returns false at a location that is a zero for neither the numerator nor the denominator
+    const asymptotic1 = calc.isAsymptotic([1,2,3],[2,3,4],5,1000);
+    test('it handles non-zeroes properly', () => {
+        expect(asymptotic1).toBe(false);
+    });
+
+    //Returns true if the denominator alone goes to zero
+    const asymptotic2 = calc.isAsymptotic([1,2,3],[2,3,4],4,1000);
+    test('it handles denominator exclusive zeroes properly', () => {
+        expect(asymptotic2).toBe(true);
+    });
+
+    //Returns false if the numerator goes to zero with greater multiplicity
+    const asymptotic3 = calc.isAsymptotic([1,2,3,4,4],[2,3,4],4,1000);
+    test('it handles greater numerator multiplicity properly', () => {
+        expect(asymptotic3).toBe(false);
+    });
+
+    //Returns true if the denominator goes to zero with greater multiplicity
+    const asymptotic4 = calc.isAsymptotic([1,2,3,4,4],[2,3,4,4,4],4,1000);
+    test('it handles greater denominator multiplicity properly', () => {
+        expect(asymptotic4).toBe(true);
+    });
+});
+
+describe('calculateRoot function', () => {
+    //Returns null if a negative value is passed to an even root function
+    const nullRoot1 = calc.calculateRoot(-5,{a: 1, m: 1, b: 1},2);
+    test('it properly returns a null value when improper argument passed to even root', () => {
+        expect(nullRoot1).toBe(null);
+    });
+    
+    //Returns proper value when negative value passed to odd function
+    const oddRoot1 = calc.calculateRoot(-2,{a: 1, m: 3, b: -2},3);
+    test('it properly returns a negative value when odd root passed a negative value', () => {
+        expect(oddRoot1).toBe(-2);
+    })
+})

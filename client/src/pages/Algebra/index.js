@@ -7,6 +7,11 @@ import SvgQuadStand from '../../components/SvgQuadStand';
 import SvgPoly from '../../components/SvgPoly';
 import PolyElement from '../../components/PolyElement';
 import calc from '../../utils/Calc/calc';
+import RootExpression from '../../components/RootExpression';
+import RationalExpression from '../../components/RationalExpression';
+import RationalExpression2 from '../../components/RationalExpression2';
+import RationalPath from '../../components/RationalPath';
+import SvgRootLinear from '../../components/SvgRootLinear';
 
 function Algebra() {
     const sublinks = [
@@ -45,6 +50,10 @@ function Algebra() {
     const poly1 = <SvgPoly bounds={{xStart: -6, xEnd: 6}} zeroArr={[-4,-1,2,3]} aCo={0.25} lineFill={"red"} lineW={0.25} opacity={0.95} interval={0.1} />
     const poly2 = <SvgPoly bounds={{xStart: -6, xEnd: 6}} zeroArr={[-4,-1,-1,5]} aCo={-0.05} lineFill={"blue"} lineW={0.25} opacity={0.95} interval={0.1} />
     const poly3 = <SvgPoly bounds={{xStart: -10, xEnd: 10}} zeroArr={[-7,-3,4,4,4]} aCo={-0.005} lineFill={"green"} lineW={0.25} opacity={0.95} interval={0.1} />
+    const rational1 = <RationalPath numZeroes={[-6, -3, 1, 7]} denZeroes={[-4, -3, 1, 1, 8]} leadingCos={{ num: -1, den: 2 }} bounds={{ xStart: -15, xEnd: 15, yMax: 100, yMin: -100, threshhold: 0.0005 }} lineW={0.25} lineFill={"red"} opacity={0.95} interval={0.05} />
+    const rational2 = <RationalPath numZeroes={[-12, -5, -5, 7, 10]} denZeroes={[-8, -5, 7, 11]} leadingCos={{ num: 1, den: 10 }} bounds={{ xStart: -15, xEnd: 15, yMax: 100, yMin: -100, threshhold: 0.0005 }} lineW={0.25} lineFill={"blue"} opacity={0.95} interval={0.05} />
+    const linearRoot1 = <SvgRootLinear rootNumber={2} coefficients={{a: -2, m: 2, b: -7}} bounds={{xStart: -15, xEnd: 15 }} interval={0.1} lineW={0.25} lineFill={"blue"} opacity={0.95} />
+    const linearRoot2 = <SvgRootLinear rootNumber={3} coefficients={{a: 2, m: 1, b: 4}} bounds={{xStart: -15, xEnd: 15 }} interval={0.1} lineW={0.25} lineFill={"red"} opacity={0.95} />
     return (
         <div className='d-flex flex-column'>
             <InfoComponent sublinks={sublinks} description={description} title={"Algebra"} />
@@ -174,8 +183,64 @@ function Algebra() {
                     </p>
                     <div className='d-flex flex-column align-items-center mb-3'>
                         <h5>Equations</h5>
-                        <div><span className='text-danger'>Red Function</span>: <sup>1</sup>&frasl;<sub>4</sub>(<PolyElement coefficients={calc.getPolyCos([-4,-1,2,3])} variable={"x"} />)</div>
-                        <div><span className='text-primary'>Blue Function</span>: -<sup>1</sup>&frasl;<sub>20</sub>(<PolyElement coefficients={calc.getPolyCos([-4,-1,-1,5])} variable={"x"} />)</div>
+                        <div><span className='text-danger'>Red Function</span>: <i>y</i> = <sup>1</sup>&frasl;<sub>4</sub>(<PolyElement coefficients={calc.getPolyCos([-4,-1,2,3])} variable={"x"} />)</div>
+                        <div><span className='text-primary'>Blue Function</span>: <i>y</i> = -<sup>1</sup>&frasl;<sub>20</sub>(<PolyElement coefficients={calc.getPolyCos([-4,-1,-1,5])} variable={"x"} />)</div>
+                    </div>
+                </div>
+            </div>
+            <div className='d-flex flex-column pb-4 mb-5 border-bottom border-dark'>
+                <div className='d-flex justify-content-evenly align-items-center mb-2'>
+                    <h4 id="advanced">Advanced</h4>
+                    <a href='#top' className='nav-link'>Back to Top</a>
+                </div>
+                <div className='d-flex flex-column align-items-center'>
+                    <p className='col-10 col-md-8'>
+                        It is a bit subjective to determine what counts as <i>advanced</i> algebra, but here root functions and  
+                        rational functions will be discussed.  Understanding these functions is important because these are the 
+                        functions that typically experience domain limitations.
+                    </p>
+                    <div className='d-flex flex-column align-items-center mb-3'>
+                        <h5>Examples</h5>
+                        <div className='d-flex align-items-center mb-2'><div><b className='text-primary'>Root (No Restrictions)</b>: <i>y</i> ={' '}</div><RootExpression rootVal={4} funcArgument={<PolyElement coefficients={[1,0,4]} variable={"x"} />} /></div>
+                        <div className='d-flex align-items-center mb-2'><div><b className='text-danger'>Root (With Restrictions)</b>: <i>y</i> ={' '}</div><RootExpression rootVal={2} funcArgument={<PolyElement coefficients={[2,4]} variable={"x"} />} /></div>
+                        <div className='d-flex align-items-center mb-2'><div><b className='text-primary'>Rational (No Restrictions)</b>: <i>y</i> ={' '}</div><RationalExpression numerator={<PolyElement coefficients={[1,2,3,4]} variable={"x"} />} denominator={<PolyElement coefficients={[-3,0,-17]} variable={"x"} />} /></div>
+                        <div className='d-flex align-items-center mb-2'><div><b className='text-danger'>Rational (With Restrictions)</b>: <i>y</i> ={' '}</div><RationalExpression2 numerator={<PolyElement coefficients={[2,3]} variable={"x"} />} denominator={<PolyElement coefficients={[2,-6,4]} variable={"x"} />} /></div>
+                    </div>
+                    <p className='col-10 col-md-8'>
+                        The <b className='text-primary'>Root (No Restrictions)</b> example has no restrictions on its domain as the argument of the root, <PolyElement coefficients={[1,0,4]} variable={"x"} />, will
+                        never be negative. The <b className='text-danger'>Root (With Restrictions)</b> example has domain restrictions because the argument of an even root cannot be negative.  Since 
+                        the argument of this root, <PolyElement coefficients={[2,4]} variable={"x"} />, will be negative for any <i>x</i> &lt; 2, the domain of the function is restricted.  In 
+                        the <b className='text-primary'>Rational (No Restrictions)</b> example, the function has no restrictions because the denominator, <PolyElement coefficients={[-3,0,-17]} variable={"x"} />, can 
+                        never go to zero.  Finally, the <b className='text-danger'>Rational (With Restrictions)</b> example has domain restrictions because both the <i>x</i> values 1 and 2 will set its demonitor 
+                        expression, <PolyElement coefficients={[2,-6,4]} variable={"x"} />, equal to zero.
+                    </p>
+                    <div className='col-10 col-md-6 mb-5'>
+                        <SvgGraph bounds={{ xStart: -18, yStart: -18, width: 36, height: 36 }} childGraphics={[grid3, xAxis_1, yAxis_1, linearRoot1, linearRoot2 ]} />
+                    </div>
+                    <p className='col-10 col-md-8'>
+                        Below are the equations for the two root functions above.  In the <b className='text-danger'>red</b> function, we have a 3<sup>rd</sup> root function, 
+                        and in the <b className='text-primary'>blue</b> function, we have a square root (2<sup>nd</sup> root) function.
+                    </p>
+                    <div className='d-flex flex-column align-items-center mb-3'>
+                        <h5>Equations</h5>
+                        <div><span className='text-danger'>Red Function</span>: <i>y</i> = 2<RootExpression rootVal={3} funcArgument={<PolyElement coefficients={[1,4]} variable={"x"} />} /></div>
+                        <div><span className='text-primary'>Blue Function</span>: <i>y</i> = -2<RootExpression rootVal={2} funcArgument={<PolyElement coefficients={[2,-7]} variable={"x"} />} /></div>
+                    </div>
+                    <div className='col-10 col-md-6 mb-5'>
+                        <SvgGraph bounds={{ xStart: -18, yStart: -18, width: 36, height: 36 }} childGraphics={[grid3, xAxis_1, yAxis_1, rational1, rational2 ]} />
+                    </div>
+                    <p className='col-10 col-md-8'>
+                        Below are the equations for the two rational functions in the above graph.  In the <b className='text-danger'>red</b> function, 
+                        vertical asymptotes are present at <i>x</i> = -4, 1, and 8.  There is also a hole (removable discontinuity) at <i>x</i> = -3.  
+                        Lastly, there is a horizontal asymptote for this function at <i>y</i> = 0.  The <b className='text-primary'>blue</b> function 
+                        has vertical asymptotes at <i>x</i> = -8 and 11.  It has two removable discontinuities, at <i>x</i> = -5 and 7.  This function 
+                        does not have a horizontal asymptote as the degree of its numerator exceeds the degree of its denominator.  Since the degree of 
+                        the numerator exceeds that of the denominator by 1, this function has an oblique, or slant, asymptote.
+                    </p>
+                    <div className='d-flex flex-column align-items-center mb-3'>
+                        <h5>Equations</h5>
+                        <div className='d-flex align-items-center mb-2'><div><b className='text-primary'>Blue function</b>: <i>y</i> ={' '}</div><RationalExpression numerator={<PolyElement coefficients={calc.getPolyCos([-12, -5, -5, 7, 10])} variable={"x"} />} denominator={<PolyElement coefficients={calc.getPolyCos([-8, -5, 7, 11]).map(val => val*10)} variable={"x"} />} /></div>
+                        <div className='d-flex align-items-center mb-2'><div><b className='text-danger'>Red function</b>: <i>y</i> ={' '}</div><RationalExpression2 numerator={<PolyElement coefficients={calc.getPolyCos([-6, -3, 1, 7]).map(val => -val)} variable={"x"} />} denominator={<PolyElement coefficients={calc.getPolyCos([-4, -3, 1, 1, 8]).map(val => val*2)} variable={"x"} />} /></div>
                     </div>
                 </div>
             </div>
