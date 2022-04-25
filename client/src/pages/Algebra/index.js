@@ -476,6 +476,101 @@ function Algebra() {
                         </ul>
                     </div>
                 </div>
+                <div className='d-flex flex-column align-items-center'>
+                    <div className='d-flex justify-content-between align-items-center mb-2 col-8 col-md-6'>
+                        <h5 id='complete_square'>Completing the Square</h5>
+                        <a href='#top' className='nav-link'>Back to Top</a>
+                    </div>
+                    <p className='col-10 col-md-8'>
+                        Completing the square is useful for converting a quadratic from standard form to vertex form or for finding the roots of quadratic function 
+                        when it is in standard form.  The usefullness of the method in the second case can vary depending on the coefficients of the quadratic function.
+                    </p>
+                    <h6 className='mb-3'>Examples</h6>
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>0. Initial function</b>
+                                <div><i>y = &nbsp;</i><PolyElement coefficients={[1,10,9]} variable={'x'} /></div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>1. Divide <span className='text-danger'>b</span> coefficient by 2 and square the result</b>
+                                <div><i>y = &nbsp;</i><PolyElement coefficients={[1,10,9]} variable={'x'} /></div>
+                                <div>(10/2 = 5 &rarr; <b className='text-danger'>25</b>)</div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>2. Add to/Subtract from both sides to get a constant match on the right side</b>
+                                <div><i>y</i> + <b className='text-danger'>16</b> = &nbsp;<PolyElement coefficients={[1,10,9]} variable={'x'} /> + <b className='text-danger'>16</b></div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>3. Simplify</b>
+                                <div><i>y</i> + 16 = <PolyElement coefficients={[1,10,25]} variable={'x'} /></div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column col-6'>
+                                <div className='d-flex flex-column mb-3'>
+                                    <b className='text-primary'>4. Take the square root of the right side</b>
+                                    <div><i>y</i> + 16 = (<PolyElement coefficients={[1,5]} variable={'x'} />)<sup>2</sup></div>
+                                </div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>5. Subtract 16 from both sides to get Vertex form</b>
+                                <div><i>y</i> = (<PolyElement coefficients={[1,5]} variable={'x'} />)<sup>2</sup> - 16</div>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-evenly'>
+                            
+                        </div>
+                    </div>
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>0. Initial Equation</b>
+                                <div>0 = &nbsp;<PolyElement coefficients={[1,-8,12]} variable={'x'} /></div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>1. Divide <span className='text-danger'>b</span> coefficient by 2 and square the result</b>
+                                <div>0 = &nbsp;<PolyElement coefficients={[1,-8,12]} variable={'x'} /></div>
+                                <div>(-8/2 = -4 &rarr; <b className='text-danger'>16</b>)</div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>2. Add to/Subtract from both sides to get a constant match on the right side</b>
+                                <div>0 + <b className='text-danger'>4</b> = &nbsp;<PolyElement coefficients={[1,-8,9]} variable={'x'} /> + <b className='text-danger'>4</b></div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>3. Simplify</b>
+                                <div>4 = <PolyElement coefficients={[1,-8,16]} variable={'x'} /></div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column col-6'>
+                                <div className='d-flex flex-column mb-3'>
+                                    <b className='text-primary'>4. Factor each side into squares</b>
+                                    <div>(2)<sup>2</sup> = (<PolyElement coefficients={[1,-4]} variable={'x'} />)<sup>2</sup></div>
+                                </div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>5. Take square root of both sides</b>
+                                <div>&plusmn;2 = <PolyElement coefficients={[1,-4]} variable={'x'} /></div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column col-6'>
+                                <div className='d-flex flex-column mb-3'>
+                                    <b className='text-primary'>6. Add 4 to both sides to get roots</b>
+                                    <div><i>x</i> = 4 &plusmn; 2 &rarr; 2, 6</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-evenly'>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

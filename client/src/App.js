@@ -12,6 +12,7 @@ import AdminLogin from './pages/AdminLogin';
 import PasswordReset from './pages/PasswordReset';
 import Footer from './components/Footer';
 import Algebra from './pages/Algebra';
+import Home from './pages/Home';
 
 const httpLink = createHttpLink({
     uri: 'http://localhost:3001/graphql'
@@ -43,6 +44,7 @@ function App() {
                         <Header />
                         <main>
                             <Routes>
+                                <Route path='/' element={<Home />} />
                                 <Route path='/login' element={<Login />} />
                                 <Route path='/admin_login' element={<AdminLogin />} />
                                 <Route path='/password_reset' element={<PasswordReset />} />
