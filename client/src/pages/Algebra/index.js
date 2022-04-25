@@ -12,6 +12,7 @@ import RationalExpression from '../../components/RationalExpression';
 import RationalExpression2 from '../../components/RationalExpression2';
 import RationalPath from '../../components/RationalPath';
 import SvgRootLinear from '../../components/SvgRootLinear';
+import FractionElement from '../../components/FractionElement';
 
 function Algebra() {
     const sublinks = [
@@ -241,6 +242,238 @@ function Algebra() {
                         <h5>Equations</h5>
                         <div className='d-flex align-items-center mb-2'><div><b className='text-primary'>Blue function</b>: <i>y</i> ={' '}</div><RationalExpression numerator={<PolyElement coefficients={calc.getPolyCos([-12, -5, -5, 7, 10])} variable={"x"} />} denominator={<PolyElement coefficients={calc.getPolyCos([-8, -5, 7, 11]).map(val => val*10)} variable={"x"} />} /></div>
                         <div className='d-flex align-items-center mb-2'><div><b className='text-danger'>Red function</b>: <i>y</i> ={' '}</div><RationalExpression2 numerator={<PolyElement coefficients={calc.getPolyCos([-6, -3, 1, 7]).map(val => -val)} variable={"x"} />} denominator={<PolyElement coefficients={calc.getPolyCos([-4, -3, 1, 1, 8]).map(val => val*2)} variable={"x"} />} /></div>
+                    </div>
+                </div>
+            </div>
+            <div className='d-flex flex-column pb-4 mb-5 border-bottom border-dark'>
+                <div className='d-flex justify-content-evenly align-items-center mb-2'>
+                    <h4 id="methods">Methods</h4>
+                    <a href='#top' className='nav-link'>Back to Top</a>
+                </div>
+                <div className='d-flex flex-column align-items-center'>
+                    <p className='col-10 col-md-8'>
+                        There are many algebraic methods that if mastered will help you to solve a great many 
+                        algebra questions quite easily and efficiently.  Some of those methods and descriptions 
+                        of the methods are listed below.
+                    </p>
+                </div>
+                <div className='d-flex flex-column align-items-center'>
+                    <div className='d-flex justify-content-between align-items-center mb-2 col-8 col-md-6'>
+                        <h5 id='linear_elimination'>Linear Elimination</h5>
+                        <a href='#top' className='nav-link'>Back to Top</a>
+                    </div>
+                    <p className='col-10 col-md-8'>
+                        Linear elimination is a process by which you solve a linear system that is presented in 
+                        standard form by adding/subtracting multiples of the lines until one of the variables 
+                        is <i>eliminated</i> from the equation.  The value of the remaining variable can be readily 
+                        found; this value can then be substituted into either of the original equations to find 
+                        the value of the eliminated variable.  As with any linear system method, this method 
+                        will not work if the two lines are parallel or identical.
+                    </p>
+                    <h6 className='mb-3'>Examples</h6>
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>0. Eliminate <i>x</i> - Initial Equations</b>
+                                <div><PolyElement coefficients={[3,0]} variable={'x'} /> + <PolyElement coefficients={[4,0]} variable={'y'} /> = 8</div>
+                                <div><PolyElement coefficients={[2,0]} variable={'x'} /> - <PolyElement coefficients={[5,0]} variable={'y'} /> = -33</div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>1. Multiply Eq. 1 by 2, Eq. 2 by -3</b>
+                                <div><PolyElement coefficients={[6,0]} variable={'x'} /> + <PolyElement coefficients={[8,0]} variable={'y'} /> = 16</div>
+                                <div><PolyElement coefficients={[-6,0]} variable={'x'} /> + <PolyElement coefficients={[15,0]} variable={'y'} /> = 99</div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>2. Add Equations</b>
+                                <div>0&sdot;<i>x</i> + <PolyElement coefficients={[23,0]} variable={'y'} /> = 115</div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>3. Solve for <i>y</i></b>
+                                <div><i>y</i> = 5</div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column col-6'>
+                                <div className='d-flex flex-column mb-3'>
+                                    <b className='text-primary'>4. Substitute to find <i>x</i></b>
+                                    <div><PolyElement coefficients={[3,0]} variable={'x'} /> + 20 = 8</div>
+                                    <div><PolyElement coefficients={[2,0]} variable={'x'} /> - 25 = -33</div>
+                                </div>
+                                <div className='d-flex flex-column mb-3'>
+                                    <div><PolyElement coefficients={[3,0]} variable={'x'} /> = -12</div>
+                                    <div><PolyElement coefficients={[2,0]} variable={'x'} /> = -8</div>
+                                </div>
+                                <div className='d-flex flex-column mb-3'>
+                                    <div><i>x</i> = -4</div>
+                                    <div><i>x</i> = -4</div>
+                                </div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>5. Solution</b>
+                                <div>(-4, 5)</div>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-evenly'>
+                            
+                        </div>
+                    </div>
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>0. Eliminate <i>y</i> - Initial Equations</b>
+                                <div><PolyElement coefficients={[4,0]} variable={'x'} /> - <PolyElement coefficients={[3,0]} variable={'y'} /> = -2</div>
+                                <div><PolyElement coefficients={[-3,0]} variable={'x'} /> + <PolyElement coefficients={[1,0]} variable={'y'} /> = -1</div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>1. Multiply Eq. 2 by 3</b>
+                                <div><PolyElement coefficients={[4,0]} variable={'x'} /> - <PolyElement coefficients={[3,0]} variable={'y'} /> = -2</div>
+                                <div><PolyElement coefficients={[-9,0]} variable={'x'} /> + <PolyElement coefficients={[3,0]} variable={'y'} /> = -3</div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>2. Add Equations</b>
+                                <div><PolyElement coefficients={[-5,0]} variable={'x'} /> + 0&sdot;<i>y</i> = -5</div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>3. Solve for <i>x</i></b>
+                                <div><i>x</i> = 1</div>
+                            </div>
+                        </div>
+                        <div className='d-flex'>
+                            <div className='d-flex flex-column col-6'>
+                                <div className='d-flex flex-column mb-3'>
+                                    <b className='text-primary'>4. Substitute to find <i>y</i></b>
+                                    <div>4 - <PolyElement coefficients={[3,0]} variable={'y'} /> = -2</div>
+                                    <div>-3 + <PolyElement coefficients={[1,0]} variable={'y'} /> = -1</div>
+                                </div>
+                                <div className='d-flex flex-column mb-3'>
+                                    <div>-<PolyElement coefficients={[3,0]} variable={'y'} /> = -6</div>
+                                    <div><PolyElement coefficients={[1,0]} variable={'y'} /> = 2</div>
+                                </div>
+                                <div className='d-flex flex-column mb-3'>
+                                    <div><i>y</i> = 2</div>
+                                    <div><i>y</i> = 2</div>
+                                </div>
+                            </div>
+                            <div className='d-flex flex-column mb-3 col-6'>
+                                <b className='text-primary'>5. Solution</b>
+                                <div>(1, 2)</div>
+                            </div>
+                        </div>
+                        <div className='d-flex justify-content-evenly'>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div className='d-flex flex-column align-items-center'>
+                    <div className='d-flex justify-content-between align-items-center mb-2 col-8 col-md-6'>
+                        <h5 id='quadratic_formula'>Quadratic Formula</h5>
+                        <a href='#top' className='nav-link'>Back to Top</a>
+                    </div>
+                    <p className='col-10 col-md-8'>
+                        The quadratic formula is a method that can be used to find the roots/zeroes of a quadratic 
+                        function when the function is given in standard form (<i>y</i> = <b className='text-danger'>a</b><PolyElement coefficients={[1,0,0]} variable={'x'} /> + <b className='text-danger'>b</b><PolyElement coefficients={[1,0]} variable={'x'} /> + <b className='text-danger'>c</b>).  
+                        Below is the the quadratic formula.
+                    </p>
+                    <div className='d-flex align-items-center justify-content-center mb-3'>
+                        <div><i>x</i> = {' '}</div>
+                        <FractionElement numeratorEl={<div>-<b className='text-danger'>b</b>&plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>b</b><sup>2</sup> - 4<b className='text-danger'>ac</b></span>}  /></div>} denominatorEl={<span>2<b className='text-danger'>a</b></span>} longerNumerator={true} />
+                    </div>
+                    <h6 className='mb-3'>Examples</h6>
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <div className='mb-3'>If the discriminant (<b className='text-danger'>b</b><sup>2</sup> - 4<b className='text-danger'>ac</b>) is greater than zero, the function has two unique real roots.</div>
+                        <div className='d-flex justify-content-center mb-3'>
+                            <PolyElement coefficients={[2,6,4]} variable={'x'} /> = 0
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-(<b className='text-danger'>6</b>)&plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>6</b><sup>2</sup> - 4(<b className='text-danger'>2</b>)(<b className='text-danger'>4</b>)</span>}  /></div>} denominatorEl={<span>2(<b className='text-danger'>2</b>)</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-6 &plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>36</b> - <b className='text-danger'>32</b></span>}  /></div>} denominatorEl={<span>4</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-6 &plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>4</b></span>}  /></div>} denominatorEl={<span>4</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-6 &plusmn;<b className='text-danger'>2</b></div>} denominatorEl={<span>4</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = -2, -1</div>
+                        </div>
+                    </div>
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <div className='mb-3'>If the discriminant (<b className='text-danger'>b</b><sup>2</sup> - 4<b className='text-danger'>ac</b>) is zero, the function has one unique real root, a double root.</div>
+                        <div className='d-flex justify-content-center mb-3'>
+                            <PolyElement coefficients={[1,-8,16]} variable={'x'} /> = 0
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-(<b className='text-danger'>-8</b>)&plusmn;<RootExpression rootVal={2} funcArgument={<span>(<b className='text-danger'>-8</b>)<sup>2</sup> - 4(<b className='text-danger'>1</b>)(<b className='text-danger'>16</b>)</span>}  /></div>} denominatorEl={<span>2(<b className='text-danger'>1</b>)</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>8 &plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>64</b> - <b className='text-danger'>64</b></span>}  /></div>} denominatorEl={<span>2</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>8 &plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>0</b></span>}  /></div>} denominatorEl={<span>2</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>8 &plusmn;<b className='text-danger'>0</b></div>} denominatorEl={<span>2</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = 4, 4</div>
+                        </div>
+                    </div>
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <div className='mb-3'>If the discriminant (<b className='text-danger'>b</b><sup>2</sup> - 4<b className='text-danger'>ac</b>) is less than zero, the function has two complex (imaginary) roots, which are complex conjugates.</div>
+                        <div className='d-flex justify-content-center mb-3'>
+                            <PolyElement coefficients={[2,2,1]} variable={'x'} /> = 0
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-(<b className='text-danger'>2</b>)&plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>2</b><sup>2</sup> - 4(<b className='text-danger'>2</b>)(<b className='text-danger'>1</b>)</span>}  /></div>} denominatorEl={<span>2(<b className='text-danger'>2</b>)</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-2 &plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>4</b> - <b className='text-danger'>8</b></span>}  /></div>} denominatorEl={<span>4</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-2 &plusmn;<RootExpression rootVal={2} funcArgument={<span><b className='text-danger'>-4</b></span>}  /></div>} denominatorEl={<span>4</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = {' '}</div>
+                            <FractionElement numeratorEl={<div>-2 &plusmn;<b className='text-danger'>2<i>i</i></b></div>} denominatorEl={<span>4</span>} longerNumerator={true} />
+                        </div>
+                        <div className='d-flex align-items-center justify-content-center mb-3'>
+                            <div><i>x</i> = </div>
+                            <FractionElement numeratorEl={<span>-1</span>}  denominatorEl={<span>2</span>} longerNumerator={true} />
+                            <div>&plusmn;</div>
+                            <FractionElement numeratorEl={<span><i>i</i></span>}  denominatorEl={<span>2</span>} longerNumerator={false} />
+                        </div>
+                    </div>
+                    <h6>Additional Properties</h6>              
+                    <div className='d-flex flex-column col-10 col-md-8 mb-3 border-dark border-bottom'>
+                        <ul>
+                            <li>
+                                If <b className='text-danger'>a</b> and <b className='text-danger'>c</b> have different signs, the function will have two unique real roots, one negative and one positive.  
+                                (This condition guarantees that the discriminant will be positive.)
+                            </li>
+                            <li>
+                                <div className='d-flex align-items-center'>
+                                    -<FractionElement numeratorEl={<b className='text-danger'>b</b>} denominatorEl={<b className='text-danger'>a</b>}  longerNumerator={true} /><span>&nbsp;is always the sum of the two roots of the function.</span>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
