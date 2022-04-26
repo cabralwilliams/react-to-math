@@ -32,6 +32,11 @@ function Header() {
             linkPath: "/statistics",
             linkName: "Statistics",
             classes: ["nav-link","text-light","danger-hover"]
+        },
+        {
+            linkPath: "/sample",
+            linkName: "Sample",
+            classes: ["nav-link","text-light","danger-hover"]
         }
     ]
     

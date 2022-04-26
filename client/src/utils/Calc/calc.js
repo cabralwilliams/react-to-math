@@ -175,6 +175,76 @@ const calc = {
         }
         let argument = xVal*coefficients.m + coefficients.b;
         return coefficients.a*this.basicRoot(argument,rootNumber);
+    },
+    areRelativelyPrime: function(number1 = 5, number2 = 6) {
+        if(number1 === 0 || number2 === 0) {
+            return null;
+        }
+        if(Math.abs(number1) === Math.abs(number2)) {
+            return false;
+        }
+        if(Math.abs(number1) === 1 || Math.abs(number2) === 1) {
+            return true;
+        }
+        let max = Math.max(Math.abs(number1),Math.abs(number2));
+        let min = Math.min(Math.abs(number1),Math.abs(number2));
+        for(let i = 2; i < min + 1; i++) {
+            if(max%i === 0 && min%i === 0) {
+                return false;
+            }
+        }
+        return true;
+    },
+    reselectIfZero: function(inputVal = 10) {
+        const newInput = inputVal === 0 || isNaN(inputVal) ? 10 : inputVal;
+        let output = -Math.abs(newInput) + Math.floor(Math.random()*(2*Math.abs(newInput) + 1));
+        while(output === 0) {
+            output = -Math.abs(newInput) + Math.floor(Math.random()*(2*Math.abs(newInput) + 1));
+        }
+        return output;
+    },
+    areParallel: function(cos1 = [2,3],cos2 = [3,4]) {
+        return cos1[0]*cos2[1] === cos1[1]*cos2[0];
+    },
+    reducedCoefficients: function(inputVals) {
+        const output = [...inputVals];
+        let positiveValues = output.map(val => Math.abs(val));
+        let minVal = Math.min(...positiveValues);
+        if(minVal === 1) {
+            return output;
+        }
+        let testVal = 1;
+        while(testVal < minVal) {
+            testVal++;
+            let count = 0;
+            for(let i = 0; i < positiveValues.length; i++) {
+                if(positiveValues[i]%testVal === 0) {
+                    count++;
+                }
+            }
+            if(count === positiveValues.length) {
+                for(let i = 0; i < positiveValues.length; i++) {
+                    positiveValues[i] = positiveValues[i]/testVal;
+                }
+                minVal = minVal/testVal;
+                testVal--;
+            }
+        }
+        for(let i = 0; i < positiveValues.length; i++) {
+            if(output[i] < 0) {
+                output[i] = -positiveValues[i];
+            } else {
+                output[i] = positiveValues[i];
+            }
+        }
+        return output;
+    },
+    //cos1 = [a,b], cos2 = [a,b], multiples = [m1, m2], solutionCos = [x,y]
+    getLinearComboTarget: function(cos1, cos2, multiples, solutionCos) {
+        let combinedA = cos1[0]*multiples[0] + cos2[0]*multiples[1];
+        let combinedB = cos1[1]*multiples[0] + cos2[1]*multiples[1];
+        let reducedCos = this.reducedCoefficients([combinedA,combinedB]);
+        return reducedCos[0]*solutionCos[0] + reducedCos[1]*solutionCos[1];
     }
 }
 

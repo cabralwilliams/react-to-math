@@ -18,7 +18,8 @@ function Home() {
                 <p className='col-10 col-md-8'>
                     This application will ever be under construction, I would imagine.  In the near future, I will enable users 
                     to create accounts to save information and add content to some of the blank pages, but for now the <a href='./algebra' className='text-primary'>Algebra</a> page 
-                    has significant content.  Please start there as I work to make the application more robust.
+                    has significant content.  Additionally, the <a href='./sample' className='text-primary'>Sample</a> page has a few 
+                    practice questions available.  Please start at one of those locations as I work to make the application more robust.
                 </p>
             </div>
         </div>
