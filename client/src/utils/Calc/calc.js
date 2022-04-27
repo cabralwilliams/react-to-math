@@ -70,8 +70,7 @@ const calc = {
                 denZerOb[denZeroes[i]] = 1;
             }
         }
-        let numKeys = Object.keys(numZerOb);
-        let denKeys = Object.keys(denZerOb);
+        
         //If both are zero, need to check occurrences
         if(denValue === 0 && numValue === 0) {
             if(denZerOb[xpos] > numZerOb[xpos]) {

@@ -39,7 +39,7 @@ function Algebra() {
     ];
     const description = "Algebra is a fairly broad term that is usually used to refer to the recognition and manipulation of basic mathematical symbols.  Virtually every area of mathematics involves some level of algebra.";
     const grid1 = <SvgGrid bounds={{xStart: -80, yStart: -80, xEnd: 80, yEnd: 80, xInterval: 10, yInterval: 10}} lineFill={'black'} lineW={0.75} />;
-    const grid2 = <SvgGrid bounds={{xStart: -10, yStart: -10, xEnd: 10, yEnd: 10, xInterval: 1, yInterval: 1}} lineFill={'black'} lineW={0.15} />;
+    // const grid2 = <SvgGrid bounds={{xStart: -10, yStart: -10, xEnd: 10, yEnd: 10, xInterval: 1, yInterval: 1}} lineFill={'black'} lineW={0.15} />;
     const grid3 = <SvgGrid bounds={{xStart: -15, yStart: -15, xEnd: 15, yEnd: 15, xInterval: 1, yInterval: 1}} lineFill={'black'} lineW={0.15} />;
     const line1 = <SvgLine datapoints={{x1: -80, y1: -50, x2: 80, y2: 70}} lineFill={"red"} lineW={1.25} opacity={0.75} />
     const xAxis = <SvgLine datapoints={{x1: -80, y1: 0, x2: 80, y2: 0}} lineFill={"black"} lineW={1.5} opacity={0.95} />
@@ -50,7 +50,7 @@ function Algebra() {
     const yAxis_1 = <SvgLine datapoints={{x1: 0, y1: -15, x2: 0, y2: 15}} lineFill={"black"} lineW={0.25} opacity={0.95} />
     const poly1 = <SvgPoly bounds={{xStart: -6, xEnd: 6}} zeroArr={[-4,-1,2,3]} aCo={0.25} lineFill={"red"} lineW={0.25} opacity={0.95} interval={0.1} />
     const poly2 = <SvgPoly bounds={{xStart: -6, xEnd: 6}} zeroArr={[-4,-1,-1,5]} aCo={-0.05} lineFill={"blue"} lineW={0.25} opacity={0.95} interval={0.1} />
-    const poly3 = <SvgPoly bounds={{xStart: -10, xEnd: 10}} zeroArr={[-7,-3,4,4,4]} aCo={-0.005} lineFill={"green"} lineW={0.25} opacity={0.95} interval={0.1} />
+    // const poly3 = <SvgPoly bounds={{xStart: -10, xEnd: 10}} zeroArr={[-7,-3,4,4,4]} aCo={-0.005} lineFill={"green"} lineW={0.25} opacity={0.95} interval={0.1} />
     const rational1 = <RationalPath numZeroes={[-6, -3, 1, 7]} denZeroes={[-4, -3, 1, 1, 8]} leadingCos={{ num: -1, den: 2 }} bounds={{ xStart: -15, xEnd: 15, yMax: 100, yMin: -100, threshhold: 0.0005 }} lineW={0.25} lineFill={"red"} opacity={0.95} interval={0.05} />
     const rational2 = <RationalPath numZeroes={[-12, -5, -5, 7, 10]} denZeroes={[-8, -5, 7, 11]} leadingCos={{ num: 1, den: 10 }} bounds={{ xStart: -15, xEnd: 15, yMax: 100, yMin: -100, threshhold: 0.0005 }} lineW={0.25} lineFill={"blue"} opacity={0.95} interval={0.05} />
     const linearRoot1 = <SvgRootLinear rootNumber={2} coefficients={{a: -2, m: 2, b: -7}} bounds={{xStart: -15, xEnd: 15 }} interval={0.1} lineW={0.25} lineFill={"blue"} opacity={0.95} />

@@ -3,9 +3,7 @@ import MQ from '../../utils/Questions';
 
 function TestPage() {
     const ls1 = new MQ.LinearStandard1([2,5],[3,-2],[1,2],1);
-    let plainLS1 = ls1.getQuestionStrings();
     const ls2 = new MQ.LinearStandard2([3,-7],[-1,5],[1,1,2],[3,-4],2);
-    let plainLS2 = ls2.getQuestionStrings();
 
     const handleSubmit1 = event => {
         event.preventDefault();
